@@ -1,0 +1,26 @@
+{
+  "name": "zl-button",
+  "version": "1.0.0",
+  "description": "Ziroh Labs button styling for mobile applications",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizwan-zl/zl-btn.git"
+  },
+  "keywords": [
+    "button"
+  ],
+  "author": "Ziroh Labs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizwan-zl/zl-btn/issues"
+  },
+  "homepage": "https://github.com/rizwan-zl/zl-btn#readme",
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-native": "0.71.7"
+  }
+}
