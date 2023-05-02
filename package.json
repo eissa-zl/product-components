@@ -1,5 +1,5 @@
 {
-  "name": "zl-button",
+  "name": "product-components",
   "version": "1.0.0",
   "description": "Ziroh Labs button styling for mobile applications",
   "main": "index.ts",
