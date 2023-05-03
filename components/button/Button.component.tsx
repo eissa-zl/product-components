@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, View, Text, TouchableHighlight } from 'react-native';
-import { ButtonComponentStyles } from './button.styles';
+import { ButtonComponentStyles } from './Button.styles';
 
 export type ButtonType = "FILLED" | "OUTLINED";
 

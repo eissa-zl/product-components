@@ -3,7 +3,7 @@ import {
     Text,
     View,
 } from 'react-native';
-import { BadgeStyles } from './badge.styles';
+import { BadgeStyles } from './Badge.styles';
 
 type BadgeComponentProps = {
     backgroundColor: string,
