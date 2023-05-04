@@ -10,37 +10,56 @@ type ButtonComponentProps = {
   buttonTextColor: string,
   buttonBackgroundColor: string,
   buttonUnderlayColor: string,
+  isDisabled: boolean,
   onPress: () => void
 }
 
 export const ButtonComponent = (props: ButtonComponentProps) => {
 
-  let backgroundColor: string = "";
-  let borderColor: string = "";
-  let textColor: string = "";
 
-  switch (props.buttonType) {
-    case 'FILLED':
-      backgroundColor = props.buttonBackgroundColor;
-      borderColor = props.buttonBackgroundColor;
-      textColor = props.buttonTextColor;
-      break;
-    case 'OUTLINED':
-      backgroundColor = "white";
-      borderColor = "#79747e";
-      textColor = props.buttonBackgroundColor;
-      break;
+  const [backgroundColor, setBackgroundColor] = useState("");
+  const [borderColor, setBorderColor] = useState("");
+  const [textColor, setTextColor] = useState("");
+  const [underlayColor, setUnderlayColor] = useState("");
+
+  useEffect(() => {
+    switch (props.buttonType) {
+      case 'FILLED':
+        setButtonColors(props.buttonTextColor, props.buttonBackgroundColor, props.buttonUnderlayColor ,props.buttonBackgroundColor)
+        if (props.isDisabled == true) {
+          setButtonColors("#959396", "#e3e0e3", "#e3e0e3","#e3e0e3")
+        }
+        break;
+      case 'OUTLINED':
+        setButtonColors(props.buttonBackgroundColor, "white", "#ece7f3","#79747e")
+        break;
+    }
+
+  }, [props])
+
+  function setButtonColors(currentTextColor: string, currentBackgroundColor: string, currentUnderlayColor:string ,currentBorderColor: string): void {
+    setTextColor(currentTextColor);
+    setBackgroundColor(currentBackgroundColor);
+    setUnderlayColor(currentUnderlayColor);
+    setBorderColor(currentBorderColor);
   }
 
+  var touchableProps = {
+    onPress: (): void => { props.onPress },
+    underlayColor: underlayColor,
+    disabled: props.isDisabled,
+  };
+
   return (
-    <TouchableHighlight underlayColor={props.buttonUnderlayColor} onPress={props.onPress} style={[
-      // ButtonComponentStyles[props.buttonType],
-      ButtonComponentStyles.buttonCommonStyles,
-      {
-        backgroundColor: backgroundColor,
-        borderColor: borderColor,
-      }
-    ]}>
+    <TouchableHighlight
+      {...touchableProps}
+      style={[
+        ButtonComponentStyles.buttonCommonStyles,
+        {
+          backgroundColor: backgroundColor,
+          borderColor: borderColor,
+        }
+      ]}>
       <Text style={
         [
           ButtonComponentStyles.buttonText,
