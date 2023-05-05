@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, View, Text, TouchableHighlight } from 'react-native';
 import { ButtonComponentStyles } from './Button.styles';
 
-export type ButtonType = "FILLED" | "OUTLINED";
+export type ButtonType = "FILLED" | "OUTLINED" | "TEXT" | "ELEVATED" | "TONAL";
 
 type ButtonComponentProps = {
   buttonType: ButtonType,
   buttonText: string,
   buttonTextColor: string,
-  buttonBackgroundColor: string,
-  buttonUnderlayColor: string,
-  isDisabled: boolean,
+  buttonUnderlayColor: string 
+  isDisabled?: boolean,
   onPress: () => void
-}
+} & (
+    { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string}
+  );
 
 export const ButtonComponent = (props: ButtonComponentProps) => {
-
 
   const [backgroundColor, setBackgroundColor] = useState("");
   const [borderColor, setBorderColor] = useState("");
@@ -25,19 +25,85 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
   useEffect(() => {
     switch (props.buttonType) {
       case 'FILLED':
-        setButtonColors(props.buttonTextColor, props.buttonBackgroundColor, props.buttonUnderlayColor ,props.buttonBackgroundColor)
+        setButtonColors(
+          '#FFFFFF',
+          props.buttonBackgroundColor,
+          props.buttonBackgroundColor,
+          props.buttonUnderlayColor,
+        )
         if (props.isDisabled == true) {
-          setButtonColors("#959396", "#e3e0e3", "#e3e0e3","#e3e0e3")
+          setButtonColors(
+            "#959396",
+            "#e3e0e3",
+            "#e3e0e3",
+          )
         }
         break;
       case 'OUTLINED':
-        setButtonColors(props.buttonBackgroundColor, "white", "#ece7f3","#79747e")
+        setButtonColors(
+          props.buttonTextColor,
+          "#FFFFFF",
+          "#79747e",
+          props.buttonUnderlayColor
+        )
+        if (props.isDisabled == true) {
+          setButtonColors(
+            "#a9a6a9",
+            "#FFFFFF",
+            "#e3e0e3"
+          )
+        }
+        break;
+      case 'TEXT':
+        setButtonColors(
+          props.buttonTextColor,
+          '#00000000',
+          "#00000000",
+          props.buttonUnderlayColor
+        )
+        if (props.isDisabled == true) {
+          setButtonColors(
+            "#b6b3b6",
+            "#fffbfe",
+            "#fffbfe"
+          )
+        }
+        break;
+      case 'ELEVATED':
+        setButtonColors(
+          props.buttonTextColor,
+          props.buttonBackgroundColor,
+          props.buttonBackgroundColor,
+          props.buttonUnderlayColor,
+        )
+        if (props.isDisabled == true) {
+          setButtonColors(
+            "#979598",
+            "#e3e0e3",
+            "#e3e0e3",
+          )
+        }
+        break;
+        case 'TONAL':
+        setButtonColors(
+          props.buttonTextColor,
+          props.buttonBackgroundColor,
+          props.buttonBackgroundColor,
+          props.buttonUnderlayColor,
+        )
+        if (props.isDisabled == true) {
+          setButtonColors(
+            "#979598",
+            "#e3e0e3",
+            "#e3e0e3",
+          )
+        }
         break;
     }
 
   }, [props])
 
-  function setButtonColors(currentTextColor: string, currentBackgroundColor: string, currentUnderlayColor:string ,currentBorderColor: string): void {
+  function setButtonColors(currentTextColor: string, currentBackgroundColor: string, currentBorderColor: string, currentUnderlayColor: string = ""): void {
     setTextColor(currentTextColor);
     setBackgroundColor(currentBackgroundColor);
     setUnderlayColor(currentUnderlayColor);
@@ -58,6 +124,19 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
         {
           backgroundColor: backgroundColor,
           borderColor: borderColor,
+        },
+        props.buttonType === 'ELEVATED'
+        && !props.isDisabled
+        && {
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.3,
+          shadowRadius: 2,
+          elevation: 1,
+
         }
       ]}>
       <Text style={
