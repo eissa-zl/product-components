@@ -10,6 +10,7 @@ type ButtonComponentProps = {
   buttonTextColor: string,
   buttonUnderlayColor: string
   isDisabled?: boolean,
+  svgImage?: string
   onPress: () => void
 } & (
     { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
@@ -165,14 +166,17 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
         }
       ]}
     >
-      <Text style={
-        [
-          ButtonComponentStyles.buttonText,
-          {
-            color: textColor
-          }
-        ]
-      }>{props.buttonText}</Text>
+      <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center' }}>
+        {props.svgImage && <Text style={{marginRight:11, height:15, width:15, backgroundColor:'white'}}></Text>}
+        <Text style={
+          [
+            ButtonComponentStyles.buttonText,
+            {
+              color: textColor
+            }
+          ]
+        }>{props.buttonText}</Text>
+      </View>
     </TouchableHighlight>
   );
 }
