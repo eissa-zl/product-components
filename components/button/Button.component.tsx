@@ -8,11 +8,11 @@ type ButtonComponentProps = {
   buttonType: ButtonType,
   buttonText: string,
   buttonTextColor: string,
-  buttonUnderlayColor: string 
+  buttonUnderlayColor: string
   isDisabled?: boolean,
   onPress: () => void
 } & (
-    { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string}
+    { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
   );
 
 export const ButtonComponent = (props: ButtonComponentProps) => {
@@ -84,7 +84,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           )
         }
         break;
-        case 'TONAL':
+      case 'TONAL':
         setButtonColors(
           props.buttonTextColor,
           props.buttonBackgroundColor,
@@ -112,6 +112,31 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
 
   var touchableProps = {
     onPress: (): void => { props.onPress },
+    onPressIn: (): void => {
+      switch (props.buttonType) {
+        case 'OUTLINED':
+          break;
+        case 'TEXT':
+          setBorderColor(props.buttonUnderlayColor)
+          break;
+        default:
+          setBorderColor(props.buttonUnderlayColor)
+          break;
+      }
+    },
+    onPressOut: (): void => {
+      switch (props.buttonType) {
+        case 'OUTLINED':
+          setBorderColor('#79747e')
+          break;
+        case 'TEXT':
+          setBorderColor('transparent')
+          break;
+        default:
+          setBorderColor(props.buttonBackgroundColor)
+          break;
+      }
+    },
     underlayColor: underlayColor,
     disabled: props.isDisabled,
   };
@@ -138,7 +163,8 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           elevation: 1,
 
         }
-      ]}>
+      ]}
+    >
       <Text style={
         [
           ButtonComponentStyles.buttonText,
