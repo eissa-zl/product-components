@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { ButtonComponentStyles } from './Button.styles';
 
 export type ButtonType = "FILLED" | "OUTLINED" | "TEXT" | "ELEVATED" | "TONAL";
@@ -10,7 +10,7 @@ type ButtonComponentProps = {
   buttonTextColor: string,
   buttonUnderlayColor: string
   isDisabled?: boolean,
-  svgImage?: string
+  svgImage?: any
   onPress: () => void
 } & (
     { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
@@ -27,7 +27,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
     switch (props.buttonType) {
       case 'FILLED':
         setButtonColors(
-          '#FFFFFF',
+          props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
           props.buttonUnderlayColor,
@@ -166,8 +166,8 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
         }
       ]}
     >
-      <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center' }}>
-        {props.svgImage && <Text style={{marginRight:11, height:15, width:15, backgroundColor:'white'}}></Text>}
+      <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center', gap:11 }}>
+        {props.svgImage && <props.svgImage style={{height:15, width:15}} color={textColor}></props.svgImage>}
         <Text style={
           [
             ButtonComponentStyles.buttonText,
