@@ -8,7 +8,6 @@ type ButtonComponentProps = {
   buttonType: ButtonType,
   buttonText: string,
   buttonTextColor: string,
-  buttonUnderlayColor: string
   isDisabled?: boolean,
   svgImage?: any
   onPress: () => void
@@ -30,7 +29,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          props.buttonUnderlayColor,
+          props.buttonBackgroundColor + "d9"
         )
         if (props.isDisabled == true) {
           setButtonColors(
@@ -45,7 +44,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           "#FFFFFF",
           "#79747e",
-          props.buttonUnderlayColor
+          props.buttonTextColor + "17",
         )
         if (props.isDisabled == true) {
           setButtonColors(
@@ -60,7 +59,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           '#00000000',
           "#00000000",
-          props.buttonUnderlayColor
+          props.buttonTextColor + "17"
         )
         if (props.isDisabled == true) {
           setButtonColors(
@@ -75,7 +74,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          props.buttonUnderlayColor,
+          darkenHexColor(props.buttonBackgroundColor, 3)
         )
         if (props.isDisabled == true) {
           setButtonColors(
@@ -90,7 +89,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          props.buttonUnderlayColor,
+          darkenHexColor(props.buttonBackgroundColor, 5)
         )
         if (props.isDisabled == true) {
           setButtonColors(
@@ -111,6 +110,36 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
     setBorderColor(currentBorderColor);
   }
 
+  function darkenHexColor(hex: string, percentage: number): string {
+    var rgb = hexToRgb(hex);
+    rgb.r = Math.round(rgb.r * (1 - percentage / 100));
+    rgb.g = Math.round(rgb.g * (1 - percentage / 100));
+    rgb.b = Math.round(rgb.b * (1 - percentage / 100));
+    var darkenedHex = rgbToHex(rgb.r, rgb.g, rgb.b);
+    return darkenedHex;
+  }
+
+  function hexToRgb(hex: string): { r: number; g: number; b: number } {
+    hex = hex.replace("#", "");
+    const hexRegex = /^[0-9A-Fa-f]{6}$/g;
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    return {
+      r,
+      g,
+      b
+    };
+  }
+
+  function rgbToHex(r: number, g: number, b: number): string {
+    const componentToHex = (c: number): string => {
+      const hex = c.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    };
+    return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+  }
+
   var touchableProps = {
     onPress: (): void => { props.onPress },
     onPressIn: (): void => {
@@ -118,10 +147,10 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
         case 'OUTLINED':
           break;
         case 'TEXT':
-          setBorderColor(props.buttonUnderlayColor)
+          setBorderColor(underlayColor)
           break;
         default:
-          setBorderColor(props.buttonUnderlayColor)
+          setBorderColor(underlayColor)
           break;
       }
     },
@@ -166,8 +195,8 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
         }
       ]}
     >
-      <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center', gap:11 }}>
-        {props.svgImage && <props.svgImage style={{height:15, width:15}} color={textColor}></props.svgImage>}
+      <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 11 }}>
+        {props.svgImage && <props.svgImage style={{ height: 15, width: 15 }} color={textColor}></props.svgImage>}
         <Text style={
           [
             ButtonComponentStyles.buttonText,
