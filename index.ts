@@ -1,5 +1,5 @@
-import { ButtonComponent } from "./components/button/Button.component";
-import { BadgeComponent } from "./components/badge/Badge.component";
+import { ButtonComponent } from "./src/components/button/Button.component";
+import { BadgeComponent } from "./src/components/badge/Badge.component";
 
 export {
     ButtonComponent,
