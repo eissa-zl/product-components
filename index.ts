@@ -4,6 +4,7 @@ import { TextInputComponent } from './src/components/input/Input.component'
 import { RadioComponent } from "./src/components/radioButton/Radio.component";
 import { SearchComponent } from './src/components/search/Search.component'
 import { CheckboxComponent } from "./src/components/checkbox/Checkbox.component";
+import { IconComponent } from "./src/components/icon/Icon.component";
 
 export {
     ButtonComponent,
@@ -11,5 +12,6 @@ export {
     TextInputComponent,
     RadioComponent,
     SearchComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    IconComponent
 };
