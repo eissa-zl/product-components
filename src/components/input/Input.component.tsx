@@ -2,13 +2,13 @@ import React from 'react'
 import { View, Text, TextInput,KeyboardAvoidingView, StyleProp, StyleSheet } from 'react-native'
 import styles from '../input/Input.styles'
 
-export const TextInputComponent = ({label, value, onChange, placeholder = "Type Here",supportingText="", placeholderTextColor = "grey", secureTextEntry = false, showSupportingText = false, onBlur, onFocus, inputstyle,labelstyle,supportingtextstyle,}: TextInputComponentProps) => {
+export const TextInputComponent = ({label, value, onChange, placeholder = "Type Here",supportingText="", placeholderTextColor = "grey", secureTextEntry = false, showSupportingText = false, onBlur, onFocus,containerStyle,inputstyle,labelstyle,supportingtextstyle,}: TextInputComponentProps) => {
     const { containerStyles, labelStyles, supportingTextStyles, inputStyles } = styles
 
     //Label Background is is White
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={containerStyles}>
+        <KeyboardAvoidingView behavior="padding" style={{...containerStyles,...containerStyle}}>
             <Text style={{...labelStyles,...labelstyle}}>{label}</Text> 
             <View>
                 <TextInput
@@ -36,6 +36,7 @@ type TextInputComponentProps = {
     placeholder: string,
     onChange: () => void,
     supportingText?:string,
+    containerStyle:any,
     inputstyle?:any,
     labelstyle?:any,
     supportingtextstyle?:any,
