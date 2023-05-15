@@ -23,9 +23,7 @@ export const IconComponent = (props: IconComponentProps) => {
             }]}
             underlayColor={props.activeBgColor}
             onPress={() => { }}>
-            <View style={[IconStyles.mainContainer, { backgroundColor: props.BGColor, height: props.BGsize, width: props.BGsize }]}>
-                <props.SVGImage width={props.imgSize} height={props.imgSize} />
-            </View>
+            <props.SVGImage width={props.imgSize} height={props.imgSize} />
         </TouchableHighlight>
     )
 }
