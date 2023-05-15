@@ -16,6 +16,7 @@ type RadioComponentProps = {
     defaultSelect?: string,
     isDisabled: boolean,
     textAlignment: string
+    activeBgColor: string
     setCurrentSelected: (value: React.SetStateAction<string>) => void,
 }
 
@@ -38,8 +39,11 @@ export const RadioComponent = (props: RadioComponentProps) => {
     return (
         <>
             {props.optionNames.map((item: any, index: any) => (
-                <TouchableHighlight style={{ width: '100%' }} disabled={props.isDisabled} key={index} onPress={() => selectOption(item)} underlayColor={'white'}>
-                    <View style={RadioStyles.wrapper}>
+                <TouchableHighlight style={[props.isDisabled ? { opacity: 0.3 } : {}, { width: '100%' }]}
+                    disabled={props.isDisabled}
+                    key={index} onPress={() => selectOption(item)}
+                    underlayColor={props.activeBgColor}>
+                    <View style={[RadioStyles.wrapper, { gap: 4, margin: 3, flexDirection: 'row' }]}>
                         {props.textAlignment === 'left' ?
                             <Text style={{ fontSize: fontSize, color: textColor }}>
                                 {item}
