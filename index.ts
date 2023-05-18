@@ -6,6 +6,7 @@ import { SearchComponent } from './src/components/search/Search.component'
 import { CheckboxComponent } from "./src/components/checkbox/Checkbox.component";
 import { IconComponent } from "./src/components/icon/Icon.component";
 import { SwitchComponent } from "./src/components/switch/Switch.component";
+import {ChipComponent} from './src/components/chip/ChipComponent'
 
 export {
     ButtonComponent,
@@ -15,5 +16,6 @@ export {
     SearchComponent,
     CheckboxComponent,
     IconComponent,
-    SwitchComponent
+    SwitchComponent,
+    ChipComponent
 };

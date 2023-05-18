@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch } from 'react-native';
-import { SwitchStyles } from './switch.styles';
+import { SwitchStyles } from './Switch.styles';
 
 type SwitchComponentProps = {
     isEnabled: boolean,
