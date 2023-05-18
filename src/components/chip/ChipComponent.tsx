@@ -33,16 +33,13 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
     onPress()
   };
 
-  const handleButtonRelease = () => {
-    setButtonPressed(false);
-  };
 
   return (
     <TouchableWithoutFeedback 
     onPress={handleButtonPress}
-    onPressOut={handleButtonRelease}
     >
-      <View style={[{ ...containerStyles, ...containerStyle},{backgroundColor:themeObj.backgroundColor},isButtonPressed && 
+        {({pressed})=>(
+      <View style={[{ ...containerStyles, ...containerStyle},{backgroundColor:themeObj.backgroundColor},pressed && 
         (theme==='DARK'?{backgroundColor:'black'}:{backgroundColor:'#CAC4D0'}),borderType==='SHADOW' && {...shadowProps,...shadowProp},disabled===true && {opacity:0.6}]} pointerEvents={disabled===true ? 'none' : 'auto'}>
         {primaryIconSrc && <Image style={{ ...primaryIconStyles, ...primaryIconStyle }} source={primaryIconSrc}></Image>}
         <Text style={[{ ...textStyles, ...textStyle},{color:themeObj.color}]}>{text}</Text>
@@ -52,7 +49,7 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
           <Image  source={closeIconSrc} /> :
           <Image source={require('../../assets/cross.png')} />}
         </TouchableOpacity>}
-      </View> 
+      </View> )}
      </TouchableWithoutFeedback>
   )
 
