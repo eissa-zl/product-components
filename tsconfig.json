@@ -1,0 +1,16 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["node_modules",
+    "tsconfig.json"],
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "allowJs": true,
+        "checkJs": false,
+        "jsx": "react",
+        "outDir": "./lib",
+        "removeComments": true,
+        "esModuleInterop": true,
+        "skipLibCheck" :true
+    }
+}

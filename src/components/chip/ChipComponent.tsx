@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { View, Image, Text, TouchableHighlight, TouchableOpacity,TouchableWithoutFeedback } from 'react-native'
+import { View, Image, Text, TouchableHighlight, TouchableOpacity,TouchableWithoutFeedback, Pressable } from 'react-native'
 
 import { styles } from './ChipComponent.style'
 
@@ -35,7 +35,7 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
 
 
   return (
-    <TouchableWithoutFeedback 
+    <Pressable 
     onPress={handleButtonPress}
     >
         {({pressed})=>(
@@ -47,10 +47,10 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
         <TouchableOpacity onPress={crossBtnPressed} style={{ ...closeIconStyles, ...closeIconStyle }}>
           {closeIconSrc ? 
           <Image  source={closeIconSrc} /> :
-          <Image source={require('../../assets/cross.png')} />}
+          <Image source={require('../../assets/png/cross.png')} />}
         </TouchableOpacity>}
       </View> )}
-     </TouchableWithoutFeedback>
+     </Pressable>
   )
 
 }

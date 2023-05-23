@@ -5,8 +5,8 @@ import {
     View,
 } from 'react-native';
 import { CheckboxStyles } from './Checkbox.styles';
-import CheckedIcon from './svg/checkedIcon.svg';
-import IndeterminateIcon from './svg/indeterminateIcon.svg';
+import CheckedIcon from '../../assets/svg/checkIcon.svg';
+import IndeterminateIcon from '../../assets/svg/indeterminateIcon.svg';
 
 export type CheckboxState = "checked" | "indeterminate" | "unchecked";
 
