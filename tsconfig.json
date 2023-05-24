@@ -1,14 +1,13 @@
 {
     "include": ["src/**/*"],
-    "exclude": ["node_modules",
+    "exclude": ["node_modules","**/__tests__/*",
     "tsconfig.json"],
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "allowJs": true,
-        "checkJs": false,
         "jsx": "react",
         "outDir": "./lib",
+        "declaration": true,
         "removeComments": true,
         "esModuleInterop": true,
         "skipLibCheck" :true
