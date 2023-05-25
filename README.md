@@ -9,10 +9,43 @@ Build React native apps with blazingly fast speed with help of our custom librar
 - Many components have <b>dark mode</b> compatible
 
 # Installation
+To use [LIBRARY NAME] components, you just need to install the product-components package and its peer dependencies:
 
-To use ZUNU-Native-UI components, you just need to install the product-components package and its peer dependencies:
-
-<code>
+`
 $ npm i https://github.com/eissa-zl/product-components.git  <br>
 $ yarn i https://github.com/eissa-zl/product-components.git
-</code>
+`
+# Usage
+
+<h2>General usage -</h2>
+To use the component we can simply import the component from <b>[LIBRARY NAME]</b> package.
+` import { TextInputComponent } from  'product-components' `
+
+E.g.  To use the Input Component. We just import it and pass the required props.
+
+`<TextInputComponent  
+value={inputvalue}  
+onChange={(text) =>  setinputvalue(text)}  
+placeholder={'Enter Your Name'}  
+placeholderTextColor="brown"
+/>`
+
+<b>[INSERT IMAGE HERE]</b>
+
+
+
+<h2>Custom Styling a component -</h2>
+The component can be styled just by passing the style object in style prop (eg : containerStyle, inputstyle and
+labelstyle are props which can be used for styling the particular component)
+
+We can change the border color of our component by passing object with styles in
+`containerStyle={borderColor:'red'}`
+
+Eg. 
+`<TextInputComponent  
+value={inputvalue}  
+onChange={(text) =>  setinputvalue(text)}  
+placeholder={'Enter Your Name'}  
+placeholderTextColor="brown"
+containerStyle={borderColor:'red'}
+/>`
