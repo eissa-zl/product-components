@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc && cp -r ./src/assets/ ./lib/ "
   },
   "repository": {
     "type": "git",
