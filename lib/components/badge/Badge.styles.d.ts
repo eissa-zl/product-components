@@ -6,5 +6,6 @@ export declare const BadgeStyles: {
     };
     textField: {
         fontFamily: string;
+        alignItems: "center";
     };
 };
