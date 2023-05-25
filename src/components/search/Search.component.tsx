@@ -23,7 +23,7 @@ if(theme==='DARK'){
  
   return (
     <View style={containerstyles}>
-    <Image source={require('./icon/search.png')} style={iconstyles} />
+    <Image source={require('./../../assets/png/search.png')} style={iconstyles} />
     <TextInputComponent value={value} onChange={onChange} onFocus={onFocus} onBlur={onBlur} placeholder={placeholder} placeholderTextColor={placeholderTextColor} label='' supportingText="" showSupportingText={false} containerStyle={{...containerstyles,...themeObj}} inputstyle={{...inputstyles,...themeObj}}/>
     </View>
   )

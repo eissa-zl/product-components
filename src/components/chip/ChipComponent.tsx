@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { View, Image, Text, TouchableHighlight, TouchableOpacity,TouchableWithoutFeedback } from 'react-native'
+import { View, Image, Text, TouchableHighlight, TouchableOpacity,TouchableWithoutFeedback, Pressable } from 'react-native'
 
 import { styles } from './ChipComponent.style'
 
@@ -33,16 +33,13 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
     onPress()
   };
 
-  const handleButtonRelease = () => {
-    setButtonPressed(false);
-  };
 
   return (
-    <TouchableWithoutFeedback 
+    <Pressable 
     onPress={handleButtonPress}
-    onPressOut={handleButtonRelease}
     >
-      <View style={[{ ...containerStyles, ...containerStyle},{backgroundColor:themeObj.backgroundColor},isButtonPressed && 
+        {({pressed})=>(
+      <View style={[{ ...containerStyles, ...containerStyle},{backgroundColor:themeObj.backgroundColor},pressed && 
         (theme==='DARK'?{backgroundColor:'black'}:{backgroundColor:'#CAC4D0'}),borderType==='SHADOW' && {...shadowProps,...shadowProp},disabled===true && {opacity:0.6}]} pointerEvents={disabled===true ? 'none' : 'auto'}>
         {primaryIconSrc && <Image style={{ ...primaryIconStyles, ...primaryIconStyle }} source={primaryIconSrc}></Image>}
         <Text style={[{ ...textStyles, ...textStyle},{color:themeObj.color}]}>{text}</Text>
@@ -50,10 +47,10 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
         <TouchableOpacity onPress={crossBtnPressed} style={{ ...closeIconStyles, ...closeIconStyle }}>
           {closeIconSrc ? 
           <Image  source={closeIconSrc} /> :
-          <Image source={require('../../assets/cross.png')} />}
+          <Image source={require('../../assets/png/cross.png')} />}
         </TouchableOpacity>}
-      </View> 
-     </TouchableWithoutFeedback>
+      </View> )}
+     </Pressable>
   )
 
 }
