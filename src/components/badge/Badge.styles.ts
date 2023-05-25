@@ -9,6 +9,7 @@ export const BadgeStyles = StyleSheet.create({
     },
     textField: {
         fontFamily: 'Roboto',
+        alignItems:'center'
     }
 
 })
