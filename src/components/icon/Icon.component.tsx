@@ -1,39 +1,7 @@
 import React from 'react';
 import { View, TouchableHighlight } from 'react-native';
 import { IconStyles } from './Icon.styles';
-
-type IconComponentProps = {
-
-    /**
-     * source for svg image, pass as require('../assets/icon.svg)
-     */
-    SVGImage: React.FunctionComponent<React.SVGAttributes<SVGElement>>,
-
-       /**
-     * background color for the icon component
-     */
-    BGColor: string,
-
-           /**
-     * background color when the compoenent is active
-     */
-    activeBgColor: string,
-
-           /**
-     * icon component size
-     */
-    BGsize: number,
-
-               /**
-     * image size
-     */
-    imgSize: number,
-
-                   /**
-     * if true,icon is disabled
-     */
-    isDisabled: boolean
-}
+import { IconComponentProps } from './Icon.type';
 
   /**
  * Used as an icon

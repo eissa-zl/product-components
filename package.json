@@ -5,7 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && cp -r ./src/assets/ ./lib/ "
+    "build": "rm -rf /lib && npm run build:esm && npm run build:cjs",
+"build:esm": "tsc && cp -r ./src/assets/ ./lib/",
+"build:cjs": "tsc --module CommonJS --outDir lib/cjs && cp -r ./src/assets/ ./lib/cjs/"
   },
   "repository": {
     "type": "git",

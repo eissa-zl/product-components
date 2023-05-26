@@ -6,7 +6,7 @@ import { SearchComponent } from './components/search/Search.component'
 import { CheckboxComponent } from "./components/checkbox/Checkbox.component";
 import { IconComponent } from "./components/icon/Icon.component";
 import { SwitchComponent } from "./components/switch/Switch.component";
-import {ChipComponent} from './components/chip/ChipComponent'
+import {ChipComponent} from './components/chip/Chip.component'
 
 export {
     ButtonComponent,

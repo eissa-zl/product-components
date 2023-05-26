@@ -8,8 +8,8 @@
         "jsx": "react",
         "outDir": "./lib",
         "declaration": true,
-        "removeComments": false,
+        "strict": true,
         "esModuleInterop": true,
-        "skipLibCheck" :true
+        "skipLibCheck": true
     }
 }
