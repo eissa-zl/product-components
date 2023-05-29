@@ -19,7 +19,7 @@ Build React native apps with blazingly fast speed with help of our custom librar
 
 -  <b>Default Themes </b>to choose from.
 
-- Many components have <b>dark mode</b> compatible
+-  Many components are <b>dark mode</b> compatible.
 
   
 
@@ -33,7 +33,9 @@ To use [LIBRARY NAME] components, you just need to install the product-component
 
 ```
 $ npm i https://github.com/eissa-zl/product-components.git 
+```
 
+```
 $ yarn i https://github.com/eissa-zl/product-components.git`
 ```
 
