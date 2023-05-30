@@ -2,8 +2,6 @@ import { View, Image } from "react-native";
 import { TextInputComponent } from "../input/Input.component";
 import { styles } from "./Search.styles";
 import {SearchComponentProps} from './Search.type'
-import React from "react";
-
 
 const { inputstyles, containerstyles, iconstyles } = styles;
 

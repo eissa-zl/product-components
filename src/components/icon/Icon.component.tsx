@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, TouchableHighlight } from 'react-native';
+
+import {  TouchableHighlight } from 'react-native';
 import { IconStyles } from './Icon.styles';
 import { IconComponentProps } from './Icon.type';
 

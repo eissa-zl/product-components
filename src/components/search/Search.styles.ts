@@ -4,22 +4,23 @@ export const styles=StyleSheet.create({
         borderRadius:100,
         paddingLeft:45,
         backgroundColor:'white',
-        width:'100%',
         height:'100%',
-        fontSize:15
+        fontSize:15,
+        alignContent:'center'
     },
     containerstyles:{
         borderRadius:100,
         backgroundColor:'white',
-        width:'100%',
-        height:'100%'
+        width:250,
+        height:50,
+        alignContent:'center'
     },
     iconstyles:{
         width:20,
         height:20,
         position:'absolute',
-        top:10,
+        top:'30%',
         left:15,
-        zIndex:2
+        zIndex:2,
     }
 })

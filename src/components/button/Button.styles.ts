@@ -3,10 +3,9 @@ import { StyleSheet } from "react-native";
 export const ButtonComponentStyles = StyleSheet.create({
 
     buttonCommonStyles:{
-        alignSelf: "center",
         paddingHorizontal: 24,
         paddingVertical: 10,
-        borderRadius: 100,
+        borderRadius: 12,
         borderWidth: 2,
     },
 

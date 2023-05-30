@@ -76,5 +76,5 @@ type ChipComponentProps = {
     textStyle?: any | undefined
   }
 
-  export {ChipComponentProps}
+  export type {ChipComponentProps}
   

@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
-    Text,
     TouchableHighlight,
     View,
 } from 'react-native';
@@ -8,6 +7,7 @@ import { CheckboxStyles } from './Checkbox.styles';
 import CheckedIcon from '../../assets/svg/checkIcon.svg';
 import IndeterminateIcon from '../../assets/svg/indeterminateIcon.svg';
 import { CheckboxComponentProps } from './Checkbox.type';
+import colorCodes from '../../utils/colorCodes';
 
 
   /**
@@ -38,7 +38,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                                 height: 28,
                                 width: 28,
                             },
-                            props.isDisabled ? { borderColor: '#E6E1E5' } : { borderColor: props.outerBgColor, }
+                            props.isDisabled ? { borderColor: colorCodes.primaryDisabledBgLight } : { borderColor: props.outerBgColor, }
                         ]}>
                         {selectedCheckbox ? (
                             <View
@@ -48,7 +48,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                                         height: 28,
                                         width: 28,
                                     },
-                                    props.isDisabled ? { backgroundColor: '#E6E1E5' } : { backgroundColor: props.innerBgColor, }
+                                    props.isDisabled ? { backgroundColor: colorCodes.primaryDisabledBgLight } : { backgroundColor: props.innerBgColor, }
                                 ]}>
                                 {props.checkboxState == "checked" ?
                                     <CheckedIcon width={16} height={16} /> : <IndeterminateIcon width={16} height={16} />
