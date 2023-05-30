@@ -2,20 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { ButtonComponentStyles } from './Button.styles';
 import { darkenHexColor } from '../../utils/colorConversion';
+import { ButtonComponentProps } from './Button.type';
 
-export type ButtonType = "FILLED" | "OUTLINED" | "TEXT" | "ELEVATED" | "TONAL";
-
-type ButtonComponentProps = {
-  buttonType: ButtonType,
-  buttonText: string,
-  buttonTextColor: string,
-  isDisabled?: boolean,
-  svgImage?: any
-  onPress: () => void
-} & (
-    { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
-  );
-
+  /**
+ * Button to let user get a action done by pressing it
+ * @parms {@link ButtonComponentProps|button-component-props}
+ */
 export const ButtonComponent = (props: ButtonComponentProps) => {
 
   const [backgroundColor, setBackgroundColor] = useState("");

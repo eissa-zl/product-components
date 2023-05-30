@@ -1,24 +1,16 @@
 import React from 'react';
 import { View, TouchableHighlight } from 'react-native';
 import { IconStyles } from './Icon.styles';
+import { IconComponentProps } from './Icon.type';
 
-export type IconTheme = "light" | "dark";
-
-type IconComponentProps = {
-    SVGImage: React.FunctionComponent<React.SVGAttributes<SVGElement>>,
-    BGColor: string,
-    activeBgColor: string,
-    BGsize: number,
-    imgSize: number,
-    isDisabled?: boolean,
-    iconTheme: IconTheme,
-    onPress: () => void
-}
-
+  /**
+ * Used as an icon
+ * @parms {@link IconComponentProps|icon-component-props}
+ */
 export const IconComponent = (props: IconComponentProps) => {
 
     let svgColor: string;
-    if (props.iconTheme === 'light') {
+    if (props.theme === 'light') {
         svgColor = '#FFFFFF'
     }
     else {

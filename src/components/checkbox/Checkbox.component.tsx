@@ -1,26 +1,14 @@
 import React, { useState } from 'react'
-import {
-    Text,
-    TouchableHighlight,
-    View,
-} from 'react-native';
+import { Text, TouchableHighlight, View, } from 'react-native';
 import { CheckboxStyles } from './Checkbox.styles';
-import CheckedIcon from './svg/checkedIcon.svg';
-import IndeterminateIcon from './svg/indeterminateIcon.svg';
+import CheckedIcon from '../../assets/svg/checkIcon.svg';
+import IndeterminateIcon from '../../assets/svg/indeterminateIcon.svg';
+import { CheckboxComponentProps } from './Checkbox.type';
 
-export type CheckboxState = "checked" | "indeterminate" | "unchecked";
-export type CheckboxTheme = "light" | "dark";
-
-type CheckboxComponentProps = {
-    checkboxTheme: CheckboxTheme,
-    checkboxState: CheckboxState,
-    outerBgColor: string,
-    innerBgColor: string,
-    activeBgColor: string,
-    isDefaultSelected?: boolean,
-    isDisabled?: boolean,
-    setCurrentSelected: React.Dispatch<React.SetStateAction<boolean>>
-}
+/**
+* Used when user needs to select multiple items
+* @parms {@link CheckboxComponentProps|checkbox-component-props}
+*/
 
 export const CheckboxComponent = (props: CheckboxComponentProps) => {
     const [selectedCheckbox, setSelectedCheckbox] = useState(props.isDefaultSelected ? props.isDefaultSelected : false);
@@ -30,7 +18,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
     }
 
     let svgColor: string;
-    if (props.checkboxTheme === 'light') {
+    if (props.theme === 'light') {
         svgColor = '#FFFFFF'
     }
     else {

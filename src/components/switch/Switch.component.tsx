@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import { Switch } from 'react-native';
-import { SwitchStyles } from './switch.styles';
+import React, { useState } from "react";
+import { Switch } from "react-native";
+import { SwitchStyles } from "./Switch.styles";
+import { SwitchComponentProps } from "./Switch.type";
 
-type SwitchComponentProps = {
-    isEnabled: boolean,
-    setIsEnabled: React.Dispatch<React.SetStateAction<boolean>>,
-    enabledTrackColor: string,
-    disabledTrackColor: string,
-    enabledThumbColor: string,
-    disabledThumbColor: string,
-    isDisabled: boolean
-}
 
+/**
+ * Switch acts as a switch between two values ON or OFF.
+ * @parms {@link SwitchComponentProps|switch-component-props}
+ */
 export const SwitchComponent = (props: SwitchComponentProps) => {
     const toggleSwitch = () => props.setIsEnabled(previousState => !previousState);
+
     return (
         <>
             <Switch
                 disabled={props.isDisabled}
-                trackColor={{ false: props.disabledTrackColor, true: props.enabledTrackColor }}
-                thumbColor={props.isEnabled ? props.enabledThumbColor : props.disabledThumbColor}
+                trackColor={{
+                    false: props.disabledTrackColor,
+                    true: props.enabledTrackColor,
+                }}
+                thumbColor={
+                    props.isEnabled ? props.enabledThumbColor : props.disabledThumbColor
+                }
                 onValueChange={toggleSwitch}
                 value={props.isEnabled}
-                style={[SwitchStyles.switchContainer, props.isDisabled ? { opacity: 0.4 } : {}]}
+                style={[
+                    SwitchStyles.switchContainer,
+                    props.isDisabled ? { opacity: 0.4 } : {},
+                ]}
             />
         </>
-    )
-}
+    );
+};

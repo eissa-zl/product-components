@@ -1,10 +1,13 @@
 {
-  "name": "product-components",
+  "name": "zunu-native-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf /lib && npm run build:esm && npm run build:cjs",
+"build:esm": "tsc && cp -r ./src/assets/ ./lib/",
+"build:cjs": "tsc --module CommonJS --outDir lib/cjs && cp -r ./src/assets/ ./lib/cjs/"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,10 @@
   "peerDependencies": {
     "react": "18.2.0",
     "react-native": "0.71.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.6",
+    "react-native-svg": "^13.9.0",
+    "react-native-svg-transformer": "^1.0.0"
   }
 }

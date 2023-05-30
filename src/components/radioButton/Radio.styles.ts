@@ -8,7 +8,7 @@ export const RadioStyles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         paddingHorizontal: 15,
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         gap: 4, 
         flexDirection: 'row'
     },
