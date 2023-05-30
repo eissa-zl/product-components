@@ -9,14 +9,16 @@ import CheckedIcon from './svg/checkedIcon.svg';
 import IndeterminateIcon from './svg/indeterminateIcon.svg';
 
 export type CheckboxState = "checked" | "indeterminate" | "unchecked";
+export type CheckboxTheme = "light" | "dark";
 
 type CheckboxComponentProps = {
+    checkboxTheme: CheckboxTheme,
     checkboxState: CheckboxState,
     outerBgColor: string,
     innerBgColor: string,
     activeBgColor: string,
     isDefaultSelected?: boolean,
-    isDisabled: boolean,
+    isDisabled?: boolean,
     setCurrentSelected: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -25,6 +27,14 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
     const handleChange = () => {
         props.setCurrentSelected(!selectedCheckbox);
         setSelectedCheckbox(!selectedCheckbox);
+    }
+
+    let svgColor: string;
+    if (props.checkboxTheme === 'light') {
+        svgColor = '#FFFFFF'
+    }
+    else {
+        svgColor = '#000000'
     }
 
     return (
@@ -56,7 +66,8 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                                     props.isDisabled ? { backgroundColor: '#E6E1E5' } : { backgroundColor: props.innerBgColor, }
                                 ]}>
                                 {props.checkboxState == "checked" ?
-                                    <CheckedIcon width={16} height={16} /> : <IndeterminateIcon width={16} height={16} />
+                                    <CheckedIcon color={svgColor} width={16} height={16} /> :
+                                    <IndeterminateIcon color={svgColor} width={16} height={16} />
                                 }
                             </View>
                         ) : null}

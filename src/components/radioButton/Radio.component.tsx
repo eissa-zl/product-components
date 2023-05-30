@@ -14,9 +14,9 @@ type RadioComponentProps = {
     optionTextColor: string,
     fontSize: number,
     defaultSelect?: string,
-    isDisabled: boolean,
-    textAlignment: string
-    activeBgColor: string
+    isDisabled?: boolean,
+    textAlignment: string,
+    activeBgColor: string,
     setCurrentSelected: (value: React.SetStateAction<string>) => void,
 }
 
