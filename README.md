@@ -1,5 +1,5 @@
 
-# 📱[LIBRARY NAME]
+# 📱 ZUNU-NATIVE-UI
 
   
 
@@ -27,7 +27,7 @@ Build React native apps with blazingly fast speed with help of our custom librar
 
   
 
-To use [LIBRARY NAME] components, you just need to install the product-components package and its peer dependencies:
+To use ZUNU-NATIVE-UI components, you just need to install the product-components package and its peer dependencies:
 
   
 
@@ -47,7 +47,7 @@ $ yarn i https://github.com/eissa-zl/product-components.git`
 
 <h2>🎯 General usage -</h2>
 
-To use the component we can simply import the component from <b>[LIBRARY NAME]</b> package.
+To use the component we can simply import the component from <b>ZUNU-NATIVE-UI</b> package.
 
 ` import { TextInputComponent } from 'product-components' `
 
