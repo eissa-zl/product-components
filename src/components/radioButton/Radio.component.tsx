@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Text, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedbackComponent, View } from "react-native";
+import { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import { RadioStyles } from "./Radio.styles";
 import { RadioComponentProps } from "./Radio.type";
 
@@ -39,7 +39,7 @@ export const RadioComponent = (props: RadioComponentProps) => {
             ]}
           >
             {textAlign === "left" ? (
-              <Text style={{ fontSize: fontSize, color: textColor }}>
+              <Text style={{ fontSize: fontSize, color: textColor,flex:1 }}>
                 {item}
               </Text>
             ) : null}
@@ -67,7 +67,7 @@ export const RadioComponent = (props: RadioComponentProps) => {
               ) : null}
             </View>
             {textAlign === "right" ? (
-              <Text style={{ fontSize: fontSize, color: textColor }}>
+              <Text style={{ fontSize: fontSize, color: textColor ,flex:1 }}>
                 {item}
               </Text>
             ) : null}

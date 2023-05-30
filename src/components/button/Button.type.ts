@@ -5,7 +5,7 @@ type ButtonComponentProps = {
   /**
    * type of button {@link ButtonType|button-prop-type}
    */
-  buttonType: ButtonType,
+  buttonType: ButtonType ,
   
   /**
    * value of the text in button
@@ -35,4 +35,4 @@ type ButtonComponentProps = {
     { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
   );
 
-  export {ButtonComponentProps,ButtonType}
+  export type {ButtonComponentProps,ButtonType}

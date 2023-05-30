@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import { View, Image, Text, TouchableHighlight, TouchableOpacity,TouchableWithoutFeedback, Pressable } from 'react-native'
+import {useState,useEffect} from 'react'
+import { View, Image, Text, TouchableOpacity, Pressable } from 'react-native'
 
 import { styles } from './Chip.style'
 import { ChipComponentProps } from './Chip.type'
@@ -10,11 +10,11 @@ const { containerStyles, primaryIconStyles, textStyles, closeIconStyles,shadowPr
  * Used to show a value in chip format. Usually used as filter tags
  * @parms {@link ChipComponentProps|chip-component-props}
  */
-const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBtnNeeded=true,theme='LIGHT',borderType='SHADOW',shadowProp, onPress, crossBtnPressed, containerStyle, primaryIconStyle, closeIconStyle, textStyle }: ChipComponentProps) => {
-  const [isButtonPressed, setButtonPressed] = useState(false);
+const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled=false, optionalBtnNeeded=true,theme='DARK',borderType='SHADOW',shadowProp, onPress, crossBtnPressed, containerStyle, primaryIconStyle, closeIconStyle, textStyle }: ChipComponentProps) => {
+  // const [setButtonPressed] = useState(false);
   const [themeObj,setThemeObj]=useState({
     color:'#1C1B1F',
-    backgroundColor:'white'
+  backgroundColor:'white'
   })
 
   useEffect(() => {
@@ -23,17 +23,12 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
         color:'#CAC4D0',
         backgroundColor:'#1C1B1F'
       })}
-    else{
-      setThemeObj({
-        color:'#1C1B1F',
-        backgroundColor:'white'
-      })
-    }
+    
 
   }, [theme])
   
   const handleButtonPress = () => {
-    setButtonPressed(true);
+    // setButtonPressed(true);
     if(onPress)
     onPress()
   };
@@ -45,9 +40,11 @@ const ChipComponent = ({ primaryIconSrc, closeIconSrc, text,disabled, optionalBt
     >
         {({pressed})=>(
       <View style={[{ ...containerStyles, ...containerStyle},{backgroundColor:themeObj.backgroundColor},pressed && 
-        (theme==='DARK'?{backgroundColor:'black'}:{backgroundColor:'#CAC4D0'}),borderType==='SHADOW' && {...shadowProps,...shadowProp},disabled===true && {opacity:0.6}]} pointerEvents={disabled===true ? 'none' : 'auto'}>
-        {primaryIconSrc && <Image style={{ ...primaryIconStyles, ...primaryIconStyle }} source={primaryIconSrc}></Image>}
-        <Text style={[{ ...textStyles, ...textStyle},{color:themeObj.color}]}>{text}</Text>
+        (theme==='DARK'?{backgroundColor:'black'}:{backgroundColor:'lightgrey'}),borderType==='SHADOW' && {...shadowProps,...shadowProp},disabled===true && {opacity:0.6}]} pointerEvents={disabled===true ? 'none' : 'auto'}>
+  
+          {primaryIconSrc && <Image style={{ ...primaryIconStyles, ...primaryIconStyle }} source={primaryIconSrc}></Image>}
+          <Text style={[{ ...textStyles, ...textStyle},{color:themeObj.color}]}>{text}</Text>
+ 
         {optionalBtnNeeded && 
         <TouchableOpacity onPress={crossBtnPressed} style={{ ...closeIconStyles, ...closeIconStyle }}>
           {closeIconSrc ? 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import { ButtonComponentStyles } from './Button.styles';
 import { darkenHexColor } from '../../utils/colorConversion';
@@ -12,7 +12,7 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
 
   const [backgroundColor, setBackgroundColor] = useState("");
   const [borderColor, setBorderColor] = useState("");
-  const [textColor, setTextColor] = useState("");
+  const [textColor, setTextColor] = useState("#000000");
   const [underlayColor, setUnderlayColor] = useState("");
 
   useEffect(() => {

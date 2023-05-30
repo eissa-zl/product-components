@@ -1,5 +1,6 @@
-import React from 'react';
+
 import { StyleSheet } from 'react-native';
+import colorCodes from '../../utils/colorCodes';
 
 export const CheckboxStyles = StyleSheet.create({
     wrapper: {
@@ -16,11 +17,12 @@ export const CheckboxStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginVertical: 10,
+        backgroundColor:colorCodes.primaryDisabledBgLight
     },
     radioBg: {
         borderRadius: 5,
-        backgroundColor: 'black',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:colorCodes.primaryBgColorLight
     },
 })
