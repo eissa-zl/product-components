@@ -16,12 +16,12 @@ export const CheckboxStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 10,
-    backgroundColor: colorCodes.primaryDisabledBgLight,
+    backgroundColor: colorCodes.disabledBgLight,
   },
   radioBg: {
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colorCodes.primaryBgColorLight,
+    backgroundColor: colorCodes.disabledBgLight,
   },
 });
