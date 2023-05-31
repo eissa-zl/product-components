@@ -1,8 +1,4 @@
-
-import {
-    Text,
-    View,
-} from 'react-native';
+import { Text, View } from 'react-native';
 
 import { BadgeStyles } from './Badge.styles';
 import { BadgeComponentProps } from './Badge.type';
@@ -12,13 +8,18 @@ import { BadgeComponentProps } from './Badge.type';
  * @parms {@link BadgeComponentProps|badge-component-props}
  */
 export const BadgeComponent = (props: BadgeComponentProps) => {
-    return (
-        <>
-            <View style={[BadgeStyles.badgeContainer, { backgroundColor: props.backgroundColor }]}>
-                <Text style={[BadgeStyles.textField, { color: props.textColor }]}>
-                    {props.text}
-                </Text>
-            </View>
-        </>
-    )
-}
+  return (
+    <>
+      <View
+        style={[
+          BadgeStyles.badgeContainer,
+          { backgroundColor: props.backgroundColor },
+        ]}
+      >
+        <Text style={[BadgeStyles.textField, { color: props.textColor }]}>
+          {props.text}
+        </Text>
+      </View>
+    </>
+  );
+};

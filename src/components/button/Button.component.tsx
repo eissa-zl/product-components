@@ -4,16 +4,15 @@ import { ButtonComponentStyles } from './Button.styles';
 import { darkenHexColor } from '../../utils/colorConversion';
 import { ButtonComponentProps } from './Button.type';
 
-  /**
+/**
  * Button to let user get a action done by pressing it
  * @parms {@link ButtonComponentProps|button-component-props}
  */
 export const ButtonComponent = (props: ButtonComponentProps) => {
-
-  const [backgroundColor, setBackgroundColor] = useState("");
-  const [borderColor, setBorderColor] = useState("");
-  const [textColor, setTextColor] = useState("#000000");
-  const [underlayColor, setUnderlayColor] = useState("");
+  const [backgroundColor, setBackgroundColor] = useState('');
+  const [borderColor, setBorderColor] = useState('');
+  const [textColor, setTextColor] = useState('#000000');
+  const [underlayColor, setUnderlayColor] = useState('');
 
   useEffect(() => {
     switch (props.buttonType) {
@@ -22,44 +21,32 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          props.buttonBackgroundColor + "d9"
-        )
+          props.buttonBackgroundColor + 'd9'
+        );
         if (props.isDisabled == true) {
-          setButtonColors(
-            "#959396",
-            "#e3e0e3",
-            "#e3e0e3",
-          )
+          setButtonColors('#959396', '#e3e0e3', '#e3e0e3');
         }
         break;
       case 'OUTLINED':
         setButtonColors(
           props.buttonTextColor,
-          "#FFFFFF",
-          "#79747e",
-          props.buttonTextColor + "17",
-        )
+          '#FFFFFF',
+          '#79747e',
+          props.buttonTextColor + '17'
+        );
         if (props.isDisabled == true) {
-          setButtonColors(
-            "#a9a6a9",
-            "#FFFFFF",
-            "#e3e0e3"
-          )
+          setButtonColors('#a9a6a9', '#FFFFFF', '#e3e0e3');
         }
         break;
       case 'TEXT':
         setButtonColors(
           props.buttonTextColor,
           '#00000000',
-          "#00000000",
-          props.buttonTextColor + "17"
-        )
+          '#00000000',
+          props.buttonTextColor + '17'
+        );
         if (props.isDisabled == true) {
-          setButtonColors(
-            "#b6b3b6",
-            "#fffbfe",
-            "#fffbfe"
-          )
+          setButtonColors('#b6b3b6', '#fffbfe', '#fffbfe');
         }
         break;
       case 'ELEVATED':
@@ -67,14 +54,10 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          darkenHexColor(props.buttonBackgroundColor,3)
-        )
+          darkenHexColor(props.buttonBackgroundColor, 3)
+        );
         if (props.isDisabled == true) {
-          setButtonColors(
-            "#979598",
-            "#e3e0e3",
-            "#e3e0e3",
-          )
+          setButtonColors('#979598', '#e3e0e3', '#e3e0e3');
         }
         break;
       case 'TONAL':
@@ -82,21 +65,21 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           props.buttonTextColor,
           props.buttonBackgroundColor,
           props.buttonBackgroundColor,
-          darkenHexColor(props.buttonBackgroundColor,5)
-        )
+          darkenHexColor(props.buttonBackgroundColor, 5)
+        );
         if (props.isDisabled == true) {
-          setButtonColors(
-            "#979598",
-            "#e3e0e3",
-            "#e3e0e3",
-          )
+          setButtonColors('#979598', '#e3e0e3', '#e3e0e3');
         }
         break;
     }
+  }, [props]);
 
-  }, [props])
-
-  function setButtonColors(currentTextColor: string, currentBackgroundColor: string, currentBorderColor: string, currentUnderlayColor: string = ""): void {
+  function setButtonColors(
+    currentTextColor: string,
+    currentBackgroundColor: string,
+    currentBorderColor: string,
+    currentUnderlayColor: string = ''
+  ): void {
     setTextColor(currentTextColor);
     setBackgroundColor(currentBackgroundColor);
     setUnderlayColor(currentUnderlayColor);
@@ -104,29 +87,31 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
   }
 
   var touchableProps = {
-    onPress: (): void => { props.onPress },
+    onPress: (): void => {
+      props.onPress;
+    },
     onPressIn: (): void => {
       switch (props.buttonType) {
         case 'OUTLINED':
           break;
         case 'TEXT':
-          setBorderColor(underlayColor)
+          setBorderColor(underlayColor);
           break;
         default:
-          setBorderColor(underlayColor)
+          setBorderColor(underlayColor);
           break;
       }
     },
     onPressOut: (): void => {
       switch (props.buttonType) {
         case 'OUTLINED':
-          setBorderColor('#79747e')
+          setBorderColor('#79747e');
           break;
         case 'TEXT':
-          setBorderColor('transparent')
+          setBorderColor('transparent');
           break;
         default:
-          setBorderColor(props.buttonBackgroundColor)
+          setBorderColor(props.buttonBackgroundColor);
           break;
       }
     },
@@ -143,32 +128,41 @@ export const ButtonComponent = (props: ButtonComponentProps) => {
           backgroundColor: backgroundColor,
           borderColor: borderColor,
         },
-        props.buttonType === 'ELEVATED'
-        && !props.isDisabled
-        && {
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 1,
+        props.buttonType === 'ELEVATED' &&
+          !props.isDisabled && {
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.3,
+            shadowRadius: 2,
+            elevation: 1,
           },
-          shadowOpacity: 0.3,
-          shadowRadius: 2,
-          elevation: 1,
-
-        }
       ]}
     >
-      <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 11 }}>
-        {props.svgImage && <props.svgImage style={{ height: 15, width: 15 }} color={textColor}></props.svgImage>}
-        <Text style={
-          [
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 11,
+        }}
+      >
+        {props.svgImage && (
+          <props.svgImage style={{ height: 15, width: 15 }} color={textColor} />
+        )}
+        <Text
+          style={[
             ButtonComponentStyles.buttonText,
             {
-              color: textColor
-            }
-          ]
-        }>{props.buttonText}</Text>
+              color: textColor,
+            },
+          ]}
+        >
+          {props.buttonText}
+        </Text>
       </View>
     </TouchableHighlight>
   );
-}
+};

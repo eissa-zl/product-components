@@ -1,38 +1,41 @@
-type ButtonType = "FILLED" | "OUTLINED" | "TEXT" | "ELEVATED" | "TONAL";
+type ButtonType = 'FILLED' | 'OUTLINED' | 'TEXT' | 'ELEVATED' | 'TONAL';
 
 type ButtonComponentProps = {
-
   /**
    * type of button {@link ButtonType|button-prop-type}
    */
-  buttonType: ButtonType ,
-  
+  buttonType: ButtonType;
+
   /**
    * value of the text in button
    */
-  buttonText: string,
+  buttonText: string;
 
-    /**
+  /**
    * value of color of the text
    */
-  buttonTextColor: string,
+  buttonTextColor: string;
 
-      /**
+  /**
    * if true, button is disabled
    */
-  isDisabled?: boolean,
+  isDisabled?: boolean;
 
   /**
    * svg image source in button
    */
-  svgImage?: any
+  svgImage?: any;
 
   /**
    *function triggred when the user presses on the button
    */
-  onPress: () => void
+  onPress: () => void;
 } & (
-    { buttonType: 'OUTLINED' | 'TEXT' } | { buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>, buttonBackgroundColor: string }
-  );
+  | { buttonType: 'OUTLINED' | 'TEXT' }
+  | {
+      buttonType: Exclude<ButtonType, 'OUTLINED' | 'TEXT'>;
+      buttonBackgroundColor: string;
+    }
+);
 
-  export type {ButtonComponentProps,ButtonType}
+export type { ButtonComponentProps, ButtonType };

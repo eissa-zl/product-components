@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-import { RadioStyles } from "./Radio.styles";
-import { RadioComponentProps } from "./Radio.type";
+import { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { RadioStyles } from './Radio.styles';
+import { RadioComponentProps } from './Radio.type';
 
 /**
  * Used when user needs to select one of multiple options
  * @parms {@link RadioComponentProps|radio-component-props}
  */
 export const RadioComponent = (props: RadioComponentProps) => {
-  const innerBgColor = props.innerBgColor ? props.innerBgColor : "black";
-  const outerBgColor = props.outerBgColor ? props.outerBgColor : "black";
+  const innerBgColor = props.innerBgColor ? props.innerBgColor : 'black';
+  const outerBgColor = props.outerBgColor ? props.outerBgColor : 'black';
   const fontSize = props.fontSize ? props.fontSize : 20;
-  const textColor = props.optionTextColor ? props.optionTextColor : "black";
-  const textAlign = props.textAlignment ? props.textAlignment : "left";
+  const textColor = props.optionTextColor ? props.optionTextColor : 'black';
+  const textAlign = props.textAlignment ? props.textAlignment : 'left';
 
   const [selectedRadio, setSelectedRadio] = useState(
     props.defaultSelect ? props.defaultSelect : props.optionNames[0]
@@ -27,7 +27,7 @@ export const RadioComponent = (props: RadioComponentProps) => {
     <>
       {props.optionNames.map((item: any, index: any) => (
         <TouchableOpacity
-          style={[props.isDisabled ? { opacity: 0.3 } : {}, { width: "100%" }]}
+          style={[props.isDisabled ? { opacity: 0.3 } : {}, { width: '100%' }]}
           disabled={props.isDisabled}
           key={index}
           onPress={() => selectOption(item)}
@@ -35,11 +35,11 @@ export const RadioComponent = (props: RadioComponentProps) => {
           <View
             style={[
               RadioStyles.wrapper,
-              { gap: 4, margin: 3, flexDirection: "row" },
+              { gap: 4, margin: 3, flexDirection: 'row' },
             ]}
           >
-            {textAlign === "left" ? (
-              <Text style={{ fontSize: fontSize, color: textColor,flex:1 }}>
+            {textAlign === 'left' ? (
+              <Text style={{ fontSize: fontSize, color: textColor, flex: 1 }}>
                 {item}
               </Text>
             ) : null}
@@ -63,11 +63,11 @@ export const RadioComponent = (props: RadioComponentProps) => {
                       width: 15,
                     },
                   ]}
-                ></View>
+                />
               ) : null}
             </View>
-            {textAlign === "right" ? (
-              <Text style={{ fontSize: fontSize, color: textColor ,flex:1 }}>
+            {textAlign === 'right' ? (
+              <Text style={{ fontSize: fontSize, color: textColor, flex: 1 }}>
                 {item}
               </Text>
             ) : null}

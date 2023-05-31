@@ -1,7 +1,7 @@
-import { View, Image } from "react-native";
-import { TextInputComponent } from "../input/Input.component";
-import { styles } from "./Search.styles";
-import {SearchComponentProps} from './Search.type'
+import { View, Image } from 'react-native';
+import { TextInputComponent } from '../input/Input.component';
+import { styles } from './Search.styles';
+import { SearchComponentProps } from './Search.type';
 
 const { inputstyles, containerstyles, iconstyles } = styles;
 
@@ -13,27 +13,27 @@ export const SearchComponent = ({
   theme,
   value,
   onChange,
-  placeholder = "Type Here",
-  placeholderTextColor = "#777777",
+  placeholder = 'Type Here',
+  placeholderTextColor = '#777777',
   onBlur,
   onFocus,
 }: SearchComponentProps) => {
   let themeObj = {
-    backgroundColor: "#F5F6F6",
-    color: "#1A1A1A",
+    backgroundColor: '#F5F6F6',
+    color: '#1A1A1A',
   };
 
-  if (theme === "DARK") {
+  if (theme === 'DARK') {
     themeObj = {
-      backgroundColor: "#1A1A1A",
-      color: "#F5F6F6",
+      backgroundColor: '#1A1A1A',
+      color: '#F5F6F6',
     };
   }
 
   return (
     <View style={containerstyles}>
       <Image
-        source={require("./../../assets/png/search.png")}
+        source={require('./../../assets/png/search.png')}
         style={iconstyles}
       />
       <TextInputComponent
@@ -52,4 +52,3 @@ export const SearchComponent = ({
     </View>
   );
 };
-

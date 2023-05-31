@@ -1,36 +1,25 @@
 const colorCodes = {
+  textColorLight: '#FFFFFF',
+  primaryLight: '#6750A4',
+  secondaryLight: '#625B71',
+  thirdLight: '#7D5260',
+  errorLight: '#B3261E',
+  disabledBgLight: '#1C1B1F1F',
+  disabledTextLight: '#1C1B1F',
+  surfaceLight: '#FFFFFF',
+  shadowLight: '#C2C0C9',
+  outlineLight: '#79747E',
 
-    primaryTextColorLight:'#6750A4',
-    primaryBgColorLight:'#7E6AB2',
-    primaryHoverBgLight:'#7E6AB2',
-    primaryFocusedBgLight:'#7E6AB2',
-    primaryPressedBgLight:'#7E6AB2',
-    primaryDisabledBgLight:'#E3E0E3',
-    primaryBorderLight:'transparent',
+  textColorDark: '#000000',
+  primaryDark: '#D0BCFF',
+  secondaryDark: '#CCC2DC',
+  thirdDark: '#EFB8C8',
+  errorDark: '#F2B8B5',
+  disabledBgDark: '#E6E1E51F',
+  disabedTextDark: '#E6E1E5',
+  surfaceDark: '#49454F',
+  shadowDark: '#69666E',
+  outlineDark: '#938F99',
+};
 
-    secondaryTextColorLight:'#1C1B1F',
-    secondaryBgColorLight:'#E7E0EC',
-    secondaryHoverBgLight:'#6750A4',
-    secondaryFocusedBgLight:'#6750A4',
-    secondaryPressedBgLight:'#6750A4',
-    secondaryDisabledBgLight:'#E3E0E3',
-    secondaryBorderLight:'#79747E',
-
-    primaryTextColorDark:'#D0BCFF',
-    primaryBgColorDark:'#C4AFF4',
-    primaryHoverBgDark:'#C4AFF4',
-    primaryFocusedBgDark:'#C4AFF4',
-    primaryPressedBgDark:'#C4AFF4',
-    primaryDisabledBgDark:'#353336',
-    primaryBorderDark:'transparent',
-
-    secondaryTextColorDark:'#938F99',
-    secondaryBgColorDark:'#49454F14',
-    secondaryHoverBgDark:'#49454F14',
-    secondaryFocusedBgDark:'#49454F14',
-    secondaryPressedBgDark:'#49454F14',
-    secondaryDisabledBgDark:'#E3E0E3',
-    secondaryBorderDark:'#938F99',
-}
-
-export default colorCodes
+export default colorCodes;
