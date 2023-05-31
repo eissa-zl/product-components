@@ -47,7 +47,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                 width: 28,
               },
               props.isDisabled
-                ? { borderColor: colorCodes.primaryDisabledBgLight }
+                ? { borderColor: colorCodes.disabledBgLight }
                 : { borderColor: props.outerBgColor },
             ]}
           >
@@ -60,7 +60,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                     width: 28,
                   },
                   props.isDisabled
-                    ? { backgroundColor: colorCodes.primaryDisabledBgLight }
+                    ? { backgroundColor: colorCodes.disabledBgLight }
                     : { backgroundColor: props.innerBgColor },
                 ]}
               >
