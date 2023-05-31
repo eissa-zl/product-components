@@ -1,8 +1,6 @@
-
-import { Switch } from "react-native";
-import { SwitchStyles } from "./Switch.styles";
-import { SwitchComponentProps } from "./Switch.type";
-
+import { Switch } from 'react-native';
+import { SwitchStyles } from './Switch.styles';
+import { SwitchComponentProps } from './Switch.type';
 
 /**
  * Switch acts as a switch between two values ON or OFF.
