@@ -1,25 +1,44 @@
-const colorCodes = {
-  textColorLight: '#FFFFFF',
-  primaryLight: '#6750A4',
-  secondaryLight: '#625B71',
-  thirdLight: '#7D5260',
-  errorLight: '#B3261E',
-  disabledBgLight: '#1C1B1F1F',
-  disabledTextLight: '#1C1B1F',
-  surfaceLight: '#FFFFFF',
-  shadowLight: '#C2C0C9',
-  outlineLight: '#79747E',
+const colorCodes:colorCodesTypes = {
+  LIGHT:{
+  textColor: '#FFFFFF',
+  primary: '#6750A4',
+  secondary: '#625B71',
+  third: '#7D5260',
+  error: '#B3261E',
+  disabledBg: '#1C1B1F1F',
+  disabledText: '#1C1B1F',
+  surface: '#FFFFFF',
+  shadow: '#C2C0C9',
+  outline: '#79747E',
+  },
+  DARK:{
+  textColor: '#000000',
+  primary: '#D0BCFF',
+  secondary: '#CCC2DC',
+  third: '#EFB8C8',
+  error: '#F2B8B5',
+  disabledBg: '#E6E1E51F',
+  disabledText: '#E6E1E5',
+  surface: '#49454F',
+  shadow: '#69666E',
+  outline: '#938F99',
+}
+}
+type colorCodesTypes = {
+  LIGHT: colorCodesOptions,
+  DARK: colorCodesOptions
+}
+type colorCodesOptions={
+  textColor?: string,
+  primary?: string,
+  secondary?: string,
+  third?: string,
+  error?: string,
+  disabledBg?: string,
+  disabledText?: string,
+  surface?: string,
+  shadow?: string,
+  outline?: string,
+}
 
-  textColorDark: '#000000',
-  primaryDark: '#D0BCFF',
-  secondaryDark: '#CCC2DC',
-  thirdDark: '#EFB8C8',
-  errorDark: '#F2B8B5',
-  disabledBgDark: '#E6E1E51F',
-  disabedTextDark: '#E6E1E5',
-  surfaceDark: '#49454F',
-  shadowDark: '#69666E',
-  outlineDark: '#938F99',
-};
-
-export default colorCodes;
+export { colorCodes, colorCodesTypes };

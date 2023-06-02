@@ -1,3 +1,5 @@
+import { themeType } from "src/core/theme.type";
+
 type BadgeComponentProps = {
   /**
    * background color of the badge
@@ -13,6 +15,11 @@ type BadgeComponentProps = {
    * the text to be shown in the badge
    */
   text: string;
+
+  /**
+   * Allows user to pass theme object for specific component
+   */
+  theme:themeType;
 };
 
 export { BadgeComponentProps };
