@@ -9,11 +9,11 @@ const ZunuUIProvider = ({children,theme=null}:ZunuUIProviderType) => {
     useEffect(() => {
         let themeObj:themeType=theme??defaultTheme
         
-        let finalMode=theme?.dark??defaultTheme.dark
+        let finalMode=theme?.themeMode??defaultTheme.themeMode
         let finalColors=theme?.colors?{...(defaultTheme.colors),...(theme.colors)}:defaultTheme.colors
 
        themeObj={
-            dark:finalMode,
+            themeMode:finalMode,
             colors:finalColors
         }
         setThemeValue(themeObj)

@@ -4,7 +4,7 @@ import { CheckboxStyles } from './Checkbox.styles';
 import CheckedIcon from '../../assets/svg/checkIcon.svg';
 import IndeterminateIcon from '../../assets/svg/indeterminateIcon.svg';
 import { CheckboxComponentProps } from './Checkbox.type';
-import colorCodes from '../../utils/colorCodes';
+import {colorCodes} from '../../utils/colorCodes';
 
 /**
  * Used when user needs to select multiple items
@@ -47,7 +47,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                 width: 28,
               },
               props.isDisabled
-                ? { borderColor: colorCodes.disabledBgLight }
+                ? { borderColor: colorCodes.LIGHT.disabledBg }
                 : { borderColor: props.outerBgColor },
             ]}
           >
@@ -60,7 +60,7 @@ export const CheckboxComponent = (props: CheckboxComponentProps) => {
                     width: 28,
                   },
                   props.isDisabled
-                    ? { backgroundColor: colorCodes.disabledBgLight }
+                    ? { backgroundColor: colorCodes.LIGHT.disabledBg }
                     : { backgroundColor: props.innerBgColor },
                 ]}
               >
